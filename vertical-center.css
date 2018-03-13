@@ -1,0 +1,111 @@
+html,
+body,
+div,
+span,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+img,
+b,
+i,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+button {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  border: 0;
+  outline: 0;
+}
+html {
+  height: 100%;
+}
+body {
+  font-size: 0.2rem;
+}
+
+.separate {
+  height: 0.2rem;
+  background: #fff;
+}
+
+/* 行内元素 */
+#one {
+  background: #aaa;
+  height: 1rem;
+}
+#one .child {
+  line-height: 1rem;
+  text-align: center;   
+}
+
+/* 定宽块状元素 */
+#two {
+  width: 6.4rem;
+  height: 1rem;
+  background: #eee;
+}
+#two .child {
+  background: #aaa;
+  width: 4.4rem;
+  line-height: 1rem;
+  margin: 0 auto;
+}
+
+/* 表格垂直居中 */
+#three {
+  display: table; 
+  width: 6.4rem;
+  height: 1rem; 
+  background: #aaa;
+}
+#three .child {
+  text-align: center; 
+  display: table-cell; 
+  vertical-align: middle; 
+}
+
+/* inline-block居中 */
+#four {
+  height: 1rem;
+  background: #aaa;
+  text-align: center;
+}
+#four .child, #four .second {
+  display: inline-block;
+  vertical-align: middle;
+}
+#four .second {
+  height: 1rem;
+  font-size: 0;
+}
+
+/* position定位垂直水平居中 */
+#five {
+  position: relative;
+  height: 1rem;
+  background: #aaa;
+}
+#five .child {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* flex垂直水平居中 */
+#six {
+  display: flex;
+  height: 1rem;
+  background: #aaa;
+  justify-content: center; /* 水平居中 */
+  align-items: center; /* 垂直居中 */
+}

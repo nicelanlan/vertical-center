@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+
+<head lang="en">
+  <meta http-equiv="Cache-Control" content="no-cache">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no">
+  <meta name="wap-font-scale" content="no">
+  <meta content="scale-font-size" content="no">
+  <meta property="og:title" content="{{share_short.share_text | safe}}">
+  <meta property="og:description" content="{{share_short.share_content | safe}}">
+  <meta property="og:image" content="{{share_short.img | safe}}">
+  <link rel="shortcut icon" href="https://assets-cdn.github.com/favicon.ico">
+  <link rel="stylesheet" type="text/css" href="vertical-center.css">
+  <title>垂直水平居中</title>
+  <script>
+    (function (win) {
+      var doc = win.document;
+      var docEl = doc.documentElement;
+      var tid;
+
+      function refreshRem() {
+        var width = docEl.getBoundingClientRect().width;
+        // if (width > 540) { // 最大宽度
+        //   width = 540;
+        // }
+        var rem = width / 6.4;
+        docEl.style.fontSize = rem + 'px';
+      }
+
+      win.addEventListener('resize', function () {
+        clearTimeout(tid);
+        tid = setTimeout(refreshRem, 300);
+      }, false);
+      win.addEventListener('pageshow', function (e) {
+        if (e.persisted) {
+          clearTimeout(tid);
+          tid = setTimeout(refreshRem, 300);
+        }
+      }, false);
+
+      refreshRem();
+
+    })(window);
+  </script>
+</head>
+
+<body>
+  <div id="one">
+    <div class="child">行内元素垂直水平居中</div>
+  </div>
+  <div class="separate"></div>
+  <div id="two">
+    <div class="child">定宽块状元素, 文字居中需另外设置text-align</div>
+  </div>
+  <div class="separate"></div>
+  <div id="three">
+    <div class="child">表格垂直水平居中</div>
+  </div>
+  <div class="separate"></div>
+  <div id="four">
+      <!-- 原理:都显示为行框的高度由最高的行内框决定 -->
+    <div class="child">inline-block垂直水平居中</div>
+    <div class="second">second</div>
+  </div>
+  <div class="separate"></div>
+  <div id="five">
+    <div class="child">position定位垂直水平居中</div>
+  </div>
+  <div class="separate"></div>
+  <div id="six">
+    <div class="child">flex垂直水平居中</div>
+  </div>
+</body>
+
+</html>
